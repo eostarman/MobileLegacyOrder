@@ -47,7 +47,7 @@ public class MobileOrderLine: Identifiable, Codable {
     public var unitFreight: MoneyWithoutCurrency = .zero
     public var unitDeliveryCharge: MoneyWithoutCurrency = .zero
     public var qtyBackordered: Int?
-    public var qtyDiscountedOnThisLine: Int?
+    //public var qtyDiscountedOnThisLine: Int?
     public var isCloseDatedInMarket: Bool = false
     public var isManualDeposit: Bool = false
     public var basePricesAndPromosOnQtyOrdered: Bool = false
@@ -55,14 +55,14 @@ public class MobileOrderLine: Identifiable, Codable {
     public var mergeSequenceTag: Int?
     public var autoFreeGoodsLine: Bool = false
     public var isPreferredFreeGoodLine: Bool = false
-    public var originalQtyShipped: Int?
-    public var originalItemWriteoffNid: Int?
+    //public var originalQtyShipped: Int?
+    //public var originalItemWriteoffNid: Int?
     public var uniqueifier: Int?
     public var wasDownloaded: Bool = false
     public var pickAndShipDateCodes: String?
     public var dateCode: Date?
-    public var parentSlsEmpNid: Int?
-    public var parentOrderedDate: Date?
+    //public var parentSlsEmpNid: Int?
+    //public var parentOrderedDate: Date?
     public var CMAOnNid: Int?
     public var CTMOnNid: Int?
     public var CCFOnNid: Int?

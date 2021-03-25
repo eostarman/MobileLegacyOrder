@@ -13,6 +13,8 @@ public class MobileOrder: Identifiable, Codable {
     public var id: Int { orderNumber }
 
     public init() { }
+    
+    public var transactionCurrencyNid: Int?
 
     public var companyNid: Int = 1
     public var orderNumber: Int = 0
@@ -23,7 +25,7 @@ public class MobileOrder: Identifiable, Codable {
     public var isFromDistributor: Bool = false
     public var isToDistributor: Bool = false
     public var deliveryChargeNid: Int?
-    public var isAutoDeliveryCharge: Bool = true
+    public var isAutoDeliveryCharge: Bool = false
     public var isEarlyPay: Bool = false
     public var earlyPayDiscountAmt: MoneyWithoutCurrency?
     public var termDiscountDays: Int?
