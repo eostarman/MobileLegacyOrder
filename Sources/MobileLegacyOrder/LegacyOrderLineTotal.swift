@@ -1,5 +1,5 @@
 //
-//  MobileOrderLineTotal.swift
+//  LegacyOrderLineTotal.swift
 //  MobileBench
 //
 //  Created by Michael Rutherford on 9/12/20.
