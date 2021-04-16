@@ -5,7 +5,7 @@
 //  Created by Michael Rutherford on 8/31/20.
 //
 
-extension MobileOrder {
+extension LegacyOrder {
     public enum eOrderType: Int, Codable, CaseIterable {
         case FreshPresellOrder = 0
         case FreshOfftruckOrder = 1

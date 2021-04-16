@@ -8,7 +8,7 @@
 import Foundation
 import MoneyAndExchangeRates
 
-public struct MobileOrderLineTotal {
+public struct LegacyOrderLineTotal {
     public var qtyOrdered: Int
     public var qtyShipped: Int
     public var qtyDiscounted: Int
@@ -17,7 +17,7 @@ public struct MobileOrderLineTotal {
     public var totalDiscount: MoneyWithoutCurrency
     public var totalDeposit: MoneyWithoutCurrency
     
-    public init(_ line: MobileOrderLine) {
+    public init(_ line: LegacyOrderLine) {
         if line.isDiscountOnly {
             qtyOrdered = 0
             qtyShipped = 0

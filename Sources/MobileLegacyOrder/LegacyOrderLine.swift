@@ -17,7 +17,7 @@ import MoneyAndExchangeRates
 //public var routeBookBuildTo: Decimal?
 
 /// A single line on an order (legacy) used while extracting the orders downloaded for delivery by a driver
-public class MobileOrderLine: Identifiable, Codable {
+public class LegacyOrderLine: Identifiable, Codable {
     public var id = UUID()
 
     public init() { }
@@ -89,7 +89,7 @@ public class MobileOrderLine: Identifiable, Codable {
     // public var isManualRebate: Bool = false
 }
 
-extension MobileOrderLine {
+extension LegacyOrderLine {
     
     /// the frontline price (unitPrice) less discounts (unitDisc) plus deposits (unitDeposit)
     public var netUnitPrice: MoneyWithoutCurrency {

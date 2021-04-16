@@ -8,7 +8,7 @@
 import Foundation
 import MoneyAndExchangeRates
 
-public struct MobileOrderTotal {
+public struct LegacyOrderTotal {
     public var totalFrontlinePrice: MoneyWithoutCurrency = .zero
     public var totalDiscount: MoneyWithoutCurrency = .zero
     public var totalDeposit: MoneyWithoutCurrency = .zero
@@ -17,7 +17,7 @@ public struct MobileOrderTotal {
         totalFrontlinePrice - totalDiscount + totalDeposit
     }
 
-    public init(_ lines: [MobileOrderLineTotal]) {
+    public init(_ lines: [LegacyOrderLineTotal]) {
         for line in lines {
             totalFrontlinePrice += line.totalFrontlinePrice
             totalDiscount += line.totalDiscount

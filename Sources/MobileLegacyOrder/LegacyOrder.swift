@@ -9,7 +9,7 @@ import Foundation
 import MoneyAndExchangeRates
 
 // the "legacy" MobileOrder transmitted from eoStar (as a "delivery to be delivered")
-public class MobileOrder: Identifiable, Codable {
+public class LegacyOrder: Identifiable, Codable {
     public var id: Int { orderNumber }
 
     public init() { }
@@ -35,7 +35,7 @@ public class MobileOrder: Identifiable, Codable {
     public var deliveredStatus: Bool = false
     public var orderType: eOrderType?
     public var isNewOrder: Bool {
-        orderType == MobileOrder.eOrderType.FreshOfftruckOrder || orderType == MobileOrder.eOrderType.FreshPresellOrder        
+        orderType == LegacyOrder.eOrderType.FreshOfftruckOrder || orderType == LegacyOrder.eOrderType.FreshPresellOrder        
     }
     public var isHotShot: Bool = false
     public var numberSummarized: Int?
@@ -149,7 +149,7 @@ public class MobileOrder: Identifiable, Codable {
     public var VAT: MoneyWithoutCurrency?
     public var levy: MoneyWithoutCurrency?
 
-    public var lines: [MobileOrderLine] = []
+    public var lines: [LegacyOrderLine] = []
     
     public var isPresell: Bool { orderType == .FreshPresellOrder }
 }

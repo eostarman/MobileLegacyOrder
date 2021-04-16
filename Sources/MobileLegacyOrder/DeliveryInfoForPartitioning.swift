@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension MobileOrder {
+extension LegacyOrder {
     public struct DeliveryInfoForPartitioning: Codable {
         public let isOffScheduleDelivery: Bool
         public let driverNid: Int
