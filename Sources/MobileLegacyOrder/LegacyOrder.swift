@@ -75,7 +75,7 @@ public class LegacyOrder: Identifiable, Codable {
     public var followupInvoiceByNid: Int?
     public var loadedDate: Date?
     public var loadedByNid: Int?
-    public var orderedDate: Date?
+    public var orderedDate: Date = Date()
     public var orderedByNid: Int?
     public var palletizedDate: Date?
     public var palletizedByNid: Int?
