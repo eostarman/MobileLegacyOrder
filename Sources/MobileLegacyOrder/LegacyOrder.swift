@@ -10,18 +10,26 @@ import MoneyAndExchangeRates
 
 // the "legacy" MobileOrder transmitted from eoStar (as a "delivery to be delivered")
 public class LegacyOrder: Identifiable, Codable {
-    public var id: Int { orderNumber }
+    public var id = UUID()
 
     public init() { }
     
     public var transactionCurrencyNid: Int?
 
     public var companyNid: Int = 1
-    public var orderNumber: Int = 0
+    public var orderNumber: Int?
     public var whseNid: Int = 0
     public var trkNid: Int?
     public var toCusNid: Int = 0
-
+    
+    public var orderCaption: String {
+        if let orderNumber = orderNumber {
+            return "Order #\(String(orderNumber))"
+        } else {
+            return "New order"
+        }
+    }
+    
     public var isFromDistributor: Bool = false
     public var isToDistributor: Bool = false
     public var deliveryChargeNid: Int?
@@ -33,9 +41,9 @@ public class LegacyOrder: Identifiable, Codable {
     public var heldStatus: Bool = false
     public var isVoided: Bool = false
     public var deliveredStatus: Bool = false
-    public var orderType: eOrderType?
+    public var orderType: eOrderType = .FreshPresellOrder
     public var isNewOrder: Bool {
-        orderType == LegacyOrder.eOrderType.FreshOfftruckOrder || orderType == LegacyOrder.eOrderType.FreshPresellOrder        
+        orderType == .FreshOfftruckOrder || orderType == .FreshPresellOrder        
     }
     public var isHotShot: Bool = false
     public var numberSummarized: Int?
@@ -75,20 +83,30 @@ public class LegacyOrder: Identifiable, Codable {
     public var followupInvoiceByNid: Int?
     public var loadedDate: Date?
     public var loadedByNid: Int?
-    public var orderedDate: Date = Date()
-    public var orderedByNid: Int?
     public var palletizedDate: Date?
     public var palletizedByNid: Int?
     public var pickListDate: Date?
     public var pickListByNid: Int?
-    public var shippedDate: Date?
+    
+    /// When the order is-to-be shipped (before delivery), or when it was really delivered (after it's delivered)
+    /// For an already-delivered order, if you change the shippedDate after the object is constructed then the deliveredDate should be set to the same value
+    public var shippedDate: Date = Date()
     public var shippedByNid: Int?
     public var stagedDate: Date?
     public var stagedByNid: Int?
     public var verifiedDate: Date?
     public var verifiedByNid: Int?
+    
     public var voidedDate: Date?
     public var voidedByNid: Int?
+    public var voidReason: String?
+    public var voidReasonNid: Int?
+    
+    public var orderedDate: Date = Date()
+    public var orderedByNid: Int?
+    
+    // mpr: what's the difference between entryTime vs enteredDate
+    public var entryTime: Date?
 
     public var loadNumber: Int?
     public var toEquipNid: Int?
@@ -118,20 +136,17 @@ public class LegacyOrder: Identifiable, Codable {
     public var isEft: Bool = false
     public var poNumber: String?
     public var takenFrom: String?
-    public var invoiceNote: String?
+    public var invoiceNote: String = ""
     public var packNote: String?
     public var serializedItems: String?
     public var receivedBy: String?
     public var pushOffReason: String?
     public var skipReason: String?
-    public var voidReason: String?
     public var offInvoiceDiscPct: Int?
     public var discountAmt: MoneyWithoutCurrency?
     public var totalFreight: MoneyWithoutCurrency?
     public var isExistingOrder: Bool = false
     public var printedReviewInvoice: Bool = false
-    public var voidReasonNid: Int?
-    public var entryTime: Date?
     public var deliveredByHandheld: Bool = false
     public var isOffTruck: Bool = false
     public var isFromBlobbing: Bool = false

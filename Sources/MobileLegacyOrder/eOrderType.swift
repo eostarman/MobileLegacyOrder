@@ -5,14 +5,12 @@
 //  Created by Michael Rutherford on 8/31/20.
 //
 
-extension LegacyOrder {
-    public enum eOrderType: Int, Codable, CaseIterable {
-        case FreshPresellOrder = 0
-        case FreshOfftruckOrder = 1
-        case DeliveryOfDownloadedOrder = 2
-        case DownloadedOrderToBeDelivered = 3
-        case OrderToPick = 4
-        case OrderToPickAndDeliver = 5
-        case OrderRequest = 6
-    }
+public enum eOrderType: Int, Codable, CaseIterable {
+    case FreshPresellOrder = 0
+    case FreshOfftruckOrder = 1
+    case DeliveryOfDownloadedOrder = 2
+    case DownloadedOrderToBeDelivered = 3
+    case OrderToPick = 4
+    case OrderToPickAndDeliver = 5
+    case OrderRequest = 6
 }
